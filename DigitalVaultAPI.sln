@@ -4,14 +4,30 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalVaultAPI", "DigitalVaultAPI\DigitalVaultAPI.csproj", "{D9BEA3EC-2D64-40FB-953A-1C4DF428DE88}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4367E483-DDF5-4FE5-97DE-664C6207EE03} = {4367E483-DDF5-4FE5-97DE-664C6207EE03}
+		{8EE81786-C729-4190-9463-DE0067C1A9D1} = {8EE81786-C729-4190-9463-DE0067C1A9D1}
+		{C23537C4-0143-41B4-BF16-68B4FB137423} = {C23537C4-0143-41B4-BF16-68B4FB137423}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalVaultAPI.Application", "DigitalVaultAPI.Application\DigitalVaultAPI.Application.csproj", "{C23537C4-0143-41B4-BF16-68B4FB137423}"
+	ProjectSection(ProjectDependencies) = postProject
+		{23C7819A-1F03-4759-A75C-6394AB6DE469} = {23C7819A-1F03-4759-A75C-6394AB6DE469}
+		{4367E483-DDF5-4FE5-97DE-664C6207EE03} = {4367E483-DDF5-4FE5-97DE-664C6207EE03}
+		{8EE81786-C729-4190-9463-DE0067C1A9D1} = {8EE81786-C729-4190-9463-DE0067C1A9D1}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalVaultAPI.Domain", "DigitalVaultAPI.Domain\DigitalVaultAPI.Domain.csproj", "{4367E483-DDF5-4FE5-97DE-664C6207EE03}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalVaultAPI.Infrastracture", "DigitalVaultAPI.Infrastracture\DigitalVaultAPI.Infrastracture.csproj", "{8EE81786-C729-4190-9463-DE0067C1A9D1}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4367E483-DDF5-4FE5-97DE-664C6207EE03} = {4367E483-DDF5-4FE5-97DE-664C6207EE03}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalVaultAPI.Shared", "DigitalVaultAPI.Shared\DigitalVaultAPI.Shared.csproj", "{23C7819A-1F03-4759-A75C-6394AB6DE469}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4367E483-DDF5-4FE5-97DE-664C6207EE03} = {4367E483-DDF5-4FE5-97DE-664C6207EE03}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
