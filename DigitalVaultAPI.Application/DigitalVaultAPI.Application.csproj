@@ -28,6 +28,7 @@
   <ItemGroup>
     <ProjectReference Include="..\DigitalVaultAPI.Domain\DigitalVaultAPI.Domain.csproj" />
     <ProjectReference Include="..\DigitalVaultAPI.Infrastracture\DigitalVaultAPI.Infrastracture.csproj" />
+    <ProjectReference Include="..\DigitalVaultAPI.Shared\DigitalVaultAPI.Shared.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,6 +1,7 @@
 ﻿using DigitalVaultAPI.Domain.Entities;
 using DigitalVaultAPI.Infrastracture.Connection;
 using DigitalVaultAPI.Infrastracture.Repository.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace DigitalVaultAPI.Infrastracture.Repository.Request
 {
@@ -13,14 +14,26 @@ namespace DigitalVaultAPI.Infrastracture.Repository.Request
             _context = context;
         }
 
-        public Task<BalanceEntity> AddBalanceAsync(BalanceEntity balanceEntity)
+        public async Task<BalanceEntity> AddBalanceAsync(BalanceEntity balanceEntity)
         {
-            throw new NotImplementedException();
+            if (balanceEntity is null)
+                throw new ArgumentNullException(nameof(balanceEntity), "Balance cannot be null");
+
+            var result = await _context.BalanceEntity.AddAsync(balanceEntity);
+            await _context.SaveChangesAsync();
+
+            return result.Entity;
         }
 
-        public Task<List<BalanceEntity>> GetAllBalancesAsync()
+        public async Task<List<BalanceEntity>> GetAllBalancesAsync()
         {
-            throw new NotImplementedException();
+            return await _context.BalanceEntity
+                .OrderBy(balanceEntity => balanceEntity.Id)
+                .Select(balanceEntity => new BalanceEntity
+                {
+                    Id = balanceEntity.Id,
+                    CreateDate = balanceEntity.CreateDate
+                }).ToListAsync();
         }
     }
 }

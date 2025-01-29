@@ -1,6 +1,7 @@
 ﻿using DigitalVaultAPI.Domain.Entities;
 using DigitalVaultAPI.Infrastracture.Connection;
 using DigitalVaultAPI.Infrastracture.Repository.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace DigitalVaultAPI.Infrastracture.Repository.Request
 {
@@ -13,24 +14,43 @@ namespace DigitalVaultAPI.Infrastracture.Repository.Request
             _context = context;
         }
 
-        public Task<UserEntity> AddUserAsync(UserEntity userEntity)
+        public async Task<UserEntity> AddUserAsync(UserEntity userEntity)
         {
-            throw new NotImplementedException();
+            if (userEntity is null)
+                throw new ArgumentNullException(nameof(userEntity), "User cannot be null");
+
+            var result = await _context.UserEntity.AddAsync(userEntity);
+
+            //if (userEntity.Balance is null)
+            //    await AddBalanceAsync(accountUser);
+
+            await _context.SaveChangesAsync();
+
+            return result.Entity;
         }
 
         public UserEntity DeleteUserAsync(UserEntity userEntity)
         {
-            throw new NotImplementedException();
-        }
-
-        public Task<List<UserEntity>> GetAllUsersAsync()
-        {
-            throw new NotImplementedException();
+            var response = _context.UserEntity.Remove(userEntity);
+            return response.Entity;
         }
 
         public UserEntity UpdateUserAsync(UserEntity userEntity)
         {
-            throw new NotImplementedException();
+            var response = _context.UserEntity.Update(userEntity);
+            return response.Entity;
+        }
+
+        public async Task<List<UserEntity>> GetAllUsersAsync()
+        {
+            return await _context.UserEntity
+                .OrderBy(accountUser => accountUser.Name)
+                .Select(accountUser => new UserEntity
+                {
+                    Id = accountUser.Id,
+                    Name = accountUser.Name,
+                    Email = accountUser.Email
+                }).ToListAsync();
         }
     }
 }

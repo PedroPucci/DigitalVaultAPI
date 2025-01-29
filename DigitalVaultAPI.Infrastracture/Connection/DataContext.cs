@@ -19,7 +19,7 @@ namespace DigitalVaultAPI.Infrastracture.Connection
         }       
         
         public DbSet<UserEntity> UserEntity { get; set; }
-        public DbSet<BalanceEntity> Balanceentity { get; set; }
+        public DbSet<BalanceEntity> BalanceEntity { get; set; }
         public DbSet<TransferEntity> TransferEntity { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
