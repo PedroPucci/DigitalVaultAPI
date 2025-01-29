@@ -29,4 +29,8 @@
     <ProjectReference Include="..\DigitalVaultAPI.Domain\DigitalVaultAPI.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Migrations\" />
+  </ItemGroup>
+
 </Project>
