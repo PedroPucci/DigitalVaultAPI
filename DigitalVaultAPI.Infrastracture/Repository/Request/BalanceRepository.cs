@@ -32,7 +32,7 @@ namespace DigitalVaultAPI.Infrastracture.Repository.Request
                 .Select(balanceEntity => new BalanceEntity
                 {
                     Id = balanceEntity.Id,
-                    CreateDate = balanceEntity.CreateDate
+                    CreatedAt = balanceEntity.CreatedAt
                 }).ToListAsync();
         }
     }

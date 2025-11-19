@@ -5,16 +5,12 @@ namespace DigitalVaultAPI.Domain.General
     public abstract class BaseEntity
     {
         public Guid Id { get; set; } = Guid.NewGuid();
-
-        [JsonIgnore]
-        public DateTime? CreateDate { get; set; }
-
-        [JsonIgnore]
-        public DateTime? ModificationDate { get; set; }
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+        public DateTime? UpdatedAt { get; set; }
 
         protected BaseEntity()
         {
-            CreateDate = DateTime.UtcNow;
+            CreatedAt = DateTime.UtcNow;
         }
     }
 }

@@ -30,7 +30,7 @@ namespace DigitalVaultAPI.Application.Services
                     return Result<UserEntity>.Error(isValidUser.Message);
                 }
 
-                userEntity.ModificationDate = DateTime.UtcNow;
+                userEntity.UpdatedAt = DateTime.UtcNow;
                 userEntity.Email = userEntity.Email?.Trim().ToLower();
                 var result = await _repositoryUoW.UserRepository.AddUserAsync(userEntity);
 

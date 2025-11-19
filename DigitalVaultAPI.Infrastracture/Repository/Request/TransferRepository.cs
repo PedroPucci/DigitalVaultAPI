@@ -27,7 +27,7 @@ namespace DigitalVaultAPI.Infrastracture.Repository.Request
         public async Task<List<TransferEntity>> GetAllTransfersAsync()
         {
             return await _context.TransferEntity
-                .OrderBy(transferEntity => transferEntity.CreateDate)
+                .OrderBy(transferEntity => transferEntity.Id)
                 .Select(transferEntity => new TransferEntity
                 {
                     Id = transferEntity.Id,
